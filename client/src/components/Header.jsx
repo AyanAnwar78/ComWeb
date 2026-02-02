@@ -18,14 +18,16 @@ const Header = () => {
             <div className="container mx-auto px-4 py-4 flex justify-between items-center">
                 {/* Logo */}
                 <div
-                    className="text-2xl font-bold font-sans tracking-tighter select-none cursor-pointer"
+                    className="flex items-center gap-3 cursor-pointer select-none"
                     onClick={() => {
                         navigate('/');
                         window.scrollTo(0, 0);
                     }}
                 >
-                    <span className="text-white">Ek</span>
-                    <span className="text-neon-green drop-shadow-[0_0_10px_rgba(10,255,0,0.7)]">God</span>
+                    <img src="/src/assets/logo.jpg" alt="WebNginx Logo" className="h-10 w-10 rounded-full object-cover" />
+                    <span className="text-2xl font-bold font-sans tracking-tighter text-white">
+                        Web<span className="text-neon-green/80">Nginx</span>
+                    </span>
                 </div>
 
                 {/* Desktop Nav */}

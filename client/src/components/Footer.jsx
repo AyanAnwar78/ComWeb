@@ -9,12 +9,11 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                     {/* Column 1: Brand & About */}
                     <div className="space-y-6">
-                        <Link to="/" className="text-3xl font-bold tracking-tighter inline-block">
-                            <span className="text-white">Ek</span>
-                            <span className="text-neon-green drop-shadow-[0_0_10px_rgba(10,255,0,0.7)]">God</span>
+                        <Link to="/" className="flex items-center gap-2 text-3xl font-bold tracking-tighter text-white">
+                            Web<span className="text-neon-green/80">Nginx</span>
                         </Link>
                         <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-                            Building premium digital experiences from Jalandhar, Punjab to the world. We craft stunning, high-performance websites that drive growth.
+                            Building premium digital experiences. We craft stunning, high-performance websites that drive growth.
                         </p>
                         <div className="flex space-x-5 text-gray-400">
                             <a href="#" className="hover:text-neon-green transition-all transform hover:scale-110"><Instagram size={20} /></a>
@@ -44,7 +43,7 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center space-x-3 text-gray-400">
                                 <Mail size={18} className="text-neon-green" />
-                                <span>hello@ekgod.com</span>
+                                <span>hello@webnginx.com</span>
                             </li>
                             <li className="flex items-center space-x-3 text-gray-400">
                                 <Phone size={18} className="text-neon-green" />
@@ -55,7 +54,7 @@ const Footer = () => {
                 </div>
 
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs">
-                    <p>&copy; {new Date().getFullYear()} EkGod Startup. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} WebNginx. All rights reserved.</p>
                     <div className="flex space-x-6 mt-4 md:mt-0">
                         <a href="#" className="hover:text-gray-300">Privacy Policy</a>
                         <a href="#" className="hover:text-gray-300">Terms of Service</a>
