@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.jpg';
 
 const Header = () => {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -24,7 +25,7 @@ const Header = () => {
                         window.scrollTo(0, 0);
                     }}
                 >
-                    <img src="/src/assets/logo.jpg" alt="WebNginx Logo" className="h-10 w-10 rounded-full object-cover" />
+                    <img src={logo} alt="WebNginx Logo" className="h-10 w-10 rounded-full object-cover" />
                     <span className="text-2xl font-bold font-sans tracking-tighter text-white">
                         Web<span className="text-neon-green/80">Nginx</span>
                     </span>
