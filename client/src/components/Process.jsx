@@ -31,21 +31,21 @@ const steps = [
 
 const Process = () => {
     return (
-        <section id="process" className="py-20 bg-gradient-to-b from-black to-gray-900 text-white">
+        <section id="process" className="py-20 bg-[#191919] text-[#fab162]">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-neon-pink to-purple-500">
+                <h2 className="text-4xl font-bold text-center mb-16 text-[#fab162]">
                     How We Work
                 </h2>
 
                 <div className="space-y-8 max-w-4xl mx-auto">
                     {steps.map((step, index) => (
-                        <div key={index} className="process-step flex items-start md:items-center bg-black/40 p-6 rounded-xl border border-white/10 hover:border-white/30 transition-all reveal">
-                            <div className="flex-shrink-0 mr-6 w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center text-neon-green shadow-[0_0_15px_rgba(10,255,0,0.2)]">
+                        <div key={index} className="process-step flex items-start md:items-center bg-[#fab162]/5 p-6 rounded-xl border border-[#fab162]/10 hover:border-[#fab162]/30 transition-all reveal">
+                            <div className="flex-shrink-0 mr-6 w-16 h-16 rounded-full bg-black/40 flex items-center justify-center text-[#fab162]">
                                 {step.icon}
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                                <p className="text-gray-400">{step.desc}</p>
+                                <h3 className="text-xl font-bold text-[#fab162] mb-2">{step.title}</h3>
+                                <p className="text-white/80">{step.desc}</p>
                             </div>
                         </div>
                     ))}

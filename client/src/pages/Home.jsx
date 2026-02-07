@@ -8,7 +8,6 @@ import ProjectsTree from '../components/ProjectsTree';
 import Pricing from '../components/Pricing';
 import Testimonials from '../components/Testimonials';
 import Team from '../components/Team';
-import Contact from '../components/Contact';
 
 const Home = () => {
     return (
@@ -22,7 +21,6 @@ const Home = () => {
             <Pricing />
             <Testimonials />
             <Team />
-            <Contact />
         </div>
     );
 };

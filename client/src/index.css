@@ -8,15 +8,19 @@
   font-weight: 400;
 
   color-scheme: dark;
-  background-color: #050505;
-  color: rgba(255, 255, 255, 0.87);
+  --bg-dark: #191919;
+  --text-amber: #fab162;
+
+  background-color: var(--bg-dark);
+  color: white;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: #050505;
+  background: var(--bg-dark);
+  color: white;
   overflow-x: hidden;
 }
 
@@ -24,15 +28,18 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #000; 
+  background: #000;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #333; 
+  background: #333;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #00f3ff; 
+  background: #00f3ff;
 }
 
 /* Utils associated with 3D/Canvas */

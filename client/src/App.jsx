@@ -37,7 +37,7 @@ function App() {
               trigger: el,
               start: "top 85%",
               end: "bottom 15%",
-              toggleActions: "play reverse play reverse",
+              toggleActions: "play none none none",
             }
           }
         );
@@ -56,7 +56,7 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-neon-pink selection:text-white font-sans">
+    <div className="min-h-screen bg-[#191919] text-white selection:bg-[#fab162] selection:text-[#191919] font-sans">
       <Header />
       <main>
         <Routes>
