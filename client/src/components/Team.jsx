@@ -1,37 +1,77 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { User } from 'lucide-react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const teamMembers = [
-    { name: 'Ayan Anwar', role: 'Full Stack Developer', color: 'from-[#fab162] to-[#fab162]/50' },
-    { name: 'Sahdat Rolli', role: 'AI/ML Engineer', color: 'from-[#fab162] to-[#fab162]/40' },
-    { name: 'Vikash Kushwaha', role: 'Full Stack Developer', color: 'from-[#fab162] to-[#fab162]/60' }
+    { name: 'Ayan Anwar', role: 'Full Stack Developer', initial: 'A' },
+    { name: 'Sahdat Rolli', role: 'AI/ML Engineer', initial: 'S' },
+    { name: 'Vikash Kushwaha', role: 'Full Stack Developer', initial: 'V' }
 ];
 
 const Team = () => {
+    const sectionRef = useRef();
+    const headerRef = useRef();
+    const cardsRef = useRef([]);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.fromTo(headerRef.current.children,
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out',
+                    scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', once: true }
+                }
+            );
+
+            gsap.fromTo(cardsRef.current,
+                { opacity: 0, y: 60 },
+                {
+                    opacity: 1, y: 0, duration: 0.75, stagger: 0.15, ease: 'power3.out',
+                    scrollTrigger: { trigger: cardsRef.current[0], start: 'top 84%', once: true }
+                }
+            );
+
+            // Hover: avatar scale bounce
+            cardsRef.current.forEach(card => {
+                if (!card) return;
+                const avatar = card.querySelector('.team-avatar');
+                card.addEventListener('mouseenter', () => gsap.to(avatar, { scale: 1.1, duration: 0.3, ease: 'back.out(2)' }));
+                card.addEventListener('mouseleave', () => gsap.to(avatar, { scale: 1, duration: 0.3, ease: 'power2.inOut' }));
+            });
+        }, sectionRef);
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <section id="team" className="py-20 bg-[#191919]">
-            <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-16 text-[#fab162]">
-                    Meet the <span className="text-[#fab162]/60">Minds</span>
-                </h2>
+        <section ref={sectionRef} id="team" className="py-16 bg-[#080808] text-white border-t border-white/10 relative overflow-hidden">
+            <div className="absolute right-6 top-10 text-[10rem] font-black text-white/[0.03] leading-none select-none pointer-events-none">07</div>
 
-                <div className="flex flex-wrap justify-center gap-10">
-                    {teamMembers.map((member) => (
-                        <div key={member.name} className="team-card w-full sm:w-80 p-1 rounded-2xl bg-gradient-to-br hover:scale-105 transition-transform duration-300 reveal">
-                            <div className={`w-full h-full p-1 rounded-2xl bg-gradient-to-br ${member.color}`}>
-                                <div className="bg-[#fab162]/5 rounded-xl p-8 h-full flex flex-col items-center text-center relative overflow-hidden border border-[#fab162]/10">
-                                    <div className="w-24 h-24 rounded-full bg-black/40 flex items-center justify-center mb-6 text-[#fab162]">
-                                        <User size={48} />
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-white mb-2">{member.name}</h3>
-                                    <p className={`text-transparent bg-clip-text text-white bg-gradient-to-r ${member.color} font-medium`}>
-                                        {member.role}
-                                    </p>
+            <div className="container mx-auto px-6 relative z-10">
+                <div ref={headerRef}>
+                    <span className="section-label" style={{ opacity: 0 }}>The Team</span>
+                    <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-white mb-10 leading-[0.85]" style={{ opacity: 0 }}>
+                        Meet the<br /><span className="text-white/25">Minds</span>
+                    </h2>
+                </div>
 
-                                    {/* Glow Effect */}
-                                    <div className={`absolute -bottom-10 -right-10 w-32 h-32 blur-3xl opacity-20 bg-gradient-to-t ${member.color}`}></div>
-                                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10">
+                    {teamMembers.map((m, i) => (
+                        <div
+                            key={m.name}
+                            ref={el => (cardsRef.current[i] = el)}
+                            className="p-10 bg-[#080808] hover:bg-white/[0.04] transition-all duration-300 group cursor-default"
+                            style={{ opacity: 0 }}
+                        >
+                            {/* Avatar */}
+                            <div className="team-avatar w-16 h-16 rounded-full bg-white/5 border border-white/15 flex items-center justify-center mb-6 group-hover:border-white/40 transition-colors text-xl font-black text-white/50 group-hover:text-white transition-colors">
+                                {m.initial}
                             </div>
+                            <h3 className="text-xl font-bold text-white mb-1">{m.name}</h3>
+                            <p className="text-xs text-white/45 uppercase tracking-widest">{m.role}</p>
+                            <div className="mt-6 w-6 h-px bg-white/20 group-hover:w-10 transition-all duration-500" />
                         </div>
                     ))}
                 </div>

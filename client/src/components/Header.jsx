@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../assets/logo.jpg';
+import logo from '../assets/logo.png';
 
 const Header = () => {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -15,19 +15,16 @@ const Header = () => {
     ];
 
     return (
-        <header className="fixed top-0 left-0 w-full z-50 bg-[#191919]/80 backdrop-blur-md border-b border-[#fab162]/10">
-            <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <header className="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
+            <div className="container mx-auto px-6 py-4 flex justify-between items-center">
                 {/* Logo */}
                 <div
                     className="flex items-center gap-3 cursor-pointer select-none"
-                    onClick={() => {
-                        navigate('/');
-                        window.scrollTo(0, 0);
-                    }}
+                    onClick={() => { navigate('/'); window.scrollTo(0, 0); }}
                 >
-                    <img src={logo} alt="WebNginx Logo" className="h-10 w-10 rounded-full object-cover" />
-                    <span className="text-2xl font-bold font-sans tracking-tighter text-[#fab162] pb-1">
-                        Web<span className="text-[#fab162]/80">Nginx</span>
+                    <img src={logo} alt="WebNginx Logo" className="h-9 w-9 rounded-full object-cover grayscale" />
+                    <span className="text-xl font-bold tracking-tight text-white">
+                        Web<span className="text-white/60">Nginx</span>
                     </span>
                 </div>
 
@@ -37,16 +34,22 @@ const Header = () => {
                         <Link
                             key={item.name}
                             to={item.href}
-                            className="text-[#fab162]/70 hover:text-[#fab162] transition-colors duration-300 text-sm uppercase tracking-wide"
+                            className="text-white/60 hover:text-white transition-colors duration-300 text-sm uppercase tracking-widest link-underline"
                         >
                             {item.name}
                         </Link>
                     ))}
+                    <Link
+                        to="/projects"
+                        className="px-5 py-2 border border-white/30 text-white text-sm rounded-full hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-widest"
+                    >
+                        Let's Talk
+                    </Link>
                 </nav>
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden text-[#fab162] hover:text-[#fab162]/70 transition-colors focus:outline-none"
+                    className="md:hidden text-white hover:text-white/70 transition-colors focus:outline-none"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -55,13 +58,13 @@ const Header = () => {
 
             {/* Mobile Nav */}
             {isOpen && (
-                <div className="md:hidden absolute top-full left-0 w-full bg-[#191919]/95 backdrop-blur-xl border-b border-[#fab162]/10 py-6 animate-in slide-in-from-top-5 duration-300">
-                    <div className="flex flex-col space-y-6 px-4 items-center">
+                <div className="md:hidden absolute top-full left-0 w-full bg-black/98 backdrop-blur-xl border-b border-white/10 py-8">
+                    <div className="flex flex-col space-y-6 px-6 items-center">
                         {navItems.map((item) => (
                             <Link
                                 key={item.name}
                                 to={item.href}
-                                className="text-[#fab162]/80 hover:text-[#fab162] transition-colors text-lg"
+                                className="text-white/70 hover:text-white transition-colors text-lg uppercase tracking-widest"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {item.name}

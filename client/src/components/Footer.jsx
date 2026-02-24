@@ -4,60 +4,64 @@ import { Mail, Phone, MapPin, Instagram, Twitter, Linkedin } from 'lucide-react'
 
 const Footer = () => {
     return (
-        <footer className="py-10 bg-[#191919] border-t border-[#fab162]/10 text-[#fab162]">
-            <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                    {/* Column 1: Brand & About */}
-                    <div className="space-y-6">
-                        <Link to="/" className="flex items-center gap-2 text-3xl font-bold tracking-tighter text-[#fab162] pb-1">
-                            Web<span className="text-[#fab162]/80">Nginx</span>
+        <footer className="bg-[#080808] text-white border-t border-white/10">
+            {/* Marquee ticker */}
+            <div className="border-b border-white/10 py-5 overflow-hidden">
+                <div className="marquee-track">
+                    {['Web Design', 'GSAP Animation', 'React Apps', 'Custom Dev', 'SEO', 'UI/UX', 'Mobile-First', 'Premium Support',
+                        'Web Design', 'GSAP Animation', 'React Apps', 'Custom Dev', 'SEO', 'UI/UX', 'Mobile-First', 'Premium Support'].map((item, i) => (
+                            <span key={i} className="inline-block text-xs uppercase tracking-[0.4em] text-white/30 mx-8">
+                                {item} <span className="text-white/15 mx-4">·</span>
+                            </span>
+                        ))}
+                </div>
+            </div>
+
+            <div className="container mx-auto px-6 py-16">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                    {/* Brand */}
+                    <div className="space-y-5">
+                        <Link to="/" className="text-2xl font-black tracking-tighter text-white">
+                            Web<span className="text-white/30">Nginx</span>
                         </Link>
-                        <p className="text-[#fab162]/70 text-sm leading-relaxed max-w-xs">
-                            Building premium digital experiences. We craft stunning, high-performance websites that drive growth.
+                        <p className="text-white/50 text-sm leading-relaxed max-w-xs">
+                            Building premium digital experiences. Stunning, high-performance websites that drive real growth.
                         </p>
-                        <div className="flex space-x-5 text-[#fab162]/70">
-                            <a href="#" className="hover:text-[#fab162] transition-all transform hover:scale-110"><Instagram size={20} /></a>
-                            <a href="#" className="hover:text-[#fab162] transition-all transform hover:scale-110"><Twitter size={20} /></a>
-                            <a href="#" className="hover:text-[#fab162] transition-all transform hover:scale-110"><Linkedin size={20} /></a>
+                        <div className="flex space-x-5 text-white/40">
+                            <a href="#" className="hover:text-white transition-colors"><Instagram size={18} /></a>
+                            <a href="#" className="hover:text-white transition-colors"><Twitter size={18} /></a>
+                            <a href="#" className="hover:text-white transition-colors"><Linkedin size={18} /></a>
                         </div>
                     </div>
 
-                    {/* Column 2: Quick Links */}
-                    <div className="md:ml-auto">
-                        <h3 className="text-[#fab162] font-bold text-lg mb-6">Quick Links</h3>
+                    {/* Quick Links */}
+                    <div>
+                        <h3 className="text-xs uppercase tracking-widest text-white/40 mb-6">Quick Links</h3>
                         <ul className="space-y-4 text-sm">
-                            <li><Link to="/about" className="text-[#fab162]/70 hover:text-[#fab162] transition-colors">About Us</Link></li>
-                            <li><Link to="/services" className="text-[#fab162]/70 hover:text-[#fab162] transition-colors">Our Services</Link></li>
-                            <li><Link to="/projects" className="text-[#fab162]/70 hover:text-[#fab162] transition-colors">Our Projects</Link></li>
-                            <li><Link to="/pricing" className="text-[#fab162]/70 hover:text-[#fab162] transition-colors">Pricing Plans</Link></li>
+                            {[['About Us', '/about'], ['Our Services', '/services'], ['Our Projects', '/projects'], ['Pricing Plans', '/pricing']].map(([label, href]) => (
+                                <li key={href}>
+                                    <Link to={href} className="text-white/60 hover:text-white transition-colors link-underline">{label}</Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    {/* Column 3: Contact Info */}
-                    <div className="md:ml-auto">
-                        <h3 className="text-[#fab162] font-bold text-lg mb-6">Get in Touch</h3>
-                        <ul className="space-y-4 text-sm">
-                            <li className="flex items-center space-x-3 text-[#fab162]/70">
-                                <MapPin size={18} className="text-[#fab162]" />
-                                <span>Jalandhar, Punjab, India</span>
-                            </li>
-                            <li className="flex items-center space-x-3 text-[#fab162]/70">
-                                <Mail size={18} className="text-[#fab162]" />
-                                <span>kushwahav912@gmail.com</span>
-                            </li>
-                            <li className="flex items-center space-x-3 text-[#fab162]/70">
-                                <Phone size={18} className="text-[#fab162]" />
-                                <span>+91 81539 29447</span>
-                            </li>
+                    {/* Contact */}
+                    <div>
+                        <h3 className="text-xs uppercase tracking-widest text-white/40 mb-6">Get in Touch</h3>
+                        <ul className="space-y-4 text-sm text-white/60">
+                            <li className="flex items-center gap-3"><MapPin size={15} className="text-white/35 flex-shrink-0" /><span>Jalandhar, Punjab, India</span></li>
+                            <li className="flex items-center gap-3"><Mail size={15} className="text-white/35 flex-shrink-0" /><span>kushwahav912@gmail.com</span></li>
+                            <li className="flex items-center gap-3"><Phone size={15} className="text-white/35 flex-shrink-0" /><span>+91 81539 29447</span></li>
                         </ul>
                     </div>
                 </div>
 
-                <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs">
-                    <p>&copy; {new Date().getFullYear()} WebNginx. All rights reserved.</p>
+                <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-white/25 text-xs">
+                    <p>© {new Date().getFullYear()} WebNginx. All rights reserved.</p>
                     <div className="flex space-x-6 mt-4 md:mt-0">
-                        <a href="#" className="hover:text-gray-300">Privacy Policy</a>
-                        <a href="#" className="hover:text-gray-300">Terms of Service</a>
+                        <a href="#" className="hover:text-white/60 transition-colors">Privacy Policy</a>
+                        <a href="#" className="hover:text-white/60 transition-colors">Terms of Service</a>
                     </div>
                 </div>
             </div>

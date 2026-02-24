@@ -18,11 +18,8 @@ function App() {
 
   useEffect(() => {
     const locomotiveScroll = new LocomotiveScroll();
-
-    // Scroll to top on route change
     window.scrollTo(0, 0);
 
-    // Initialize ScrollTrigger animations for elements with 'reveal' class
     const ctx = gsap.context(() => {
       const revealElements = gsap.utils.toArray('.reveal');
       revealElements.forEach((el) => {
@@ -44,19 +41,16 @@ function App() {
       });
     });
 
-    // Refresh ScrollTrigger after a short delay to ensure DOM is ready
-    setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 100);
+    setTimeout(() => { ScrollTrigger.refresh(); }, 100);
 
     return () => {
       locomotiveScroll.destroy();
-      ctx.revert(); // Clean up all GSAP animations
-    }
+      ctx.revert();
+    };
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-[#191919] text-white selection:bg-[#fab162] selection:text-[#191919] font-sans">
+    <div className="min-h-screen bg-black text-white font-sans" style={{ fontFamily: "'Inter', sans-serif" }}>
       <Header />
       <main>
         <Routes>
