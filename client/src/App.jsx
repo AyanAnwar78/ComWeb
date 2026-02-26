@@ -8,7 +8,6 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
-import PricingPage from './pages/PricingPage';
 import ProjectsPage from './pages/ProjectsPage';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -57,7 +56,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/pricing" element={<PricingPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
         </Routes>
       </main>

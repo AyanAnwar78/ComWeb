@@ -6,9 +6,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const teamMembers = [
-    { name: 'Ayan Anwar', role: 'Full Stack Developer', initial: 'A' },
-    { name: 'Sahdat Rolli', role: 'AI/ML Engineer', initial: 'S' },
-    { name: 'Vikash Kushwaha', role: 'Full Stack Developer', initial: 'V' }
+    { name: 'Vikash', role: 'Full Stack Developer', initial: 'V' },
+    { name: 'Ayan', role: 'Full Stack Developer', initial: 'A' },
+    { name: 'Sahdat', role: 'AI/ML Engineer', initial: 'S' },
+    { name: 'Anil', role: 'AI/ML Engineer', initial: 'A' },
+    { name: 'Ronit', role: 'Frontend Developer', initial: 'R' }
 ];
 
 const Team = () => {

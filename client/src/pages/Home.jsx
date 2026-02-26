@@ -5,7 +5,6 @@ import Services from '../components/Services';
 import Process from '../components/Process';
 import WhyChooseUs from '../components/WhyChooseUs';
 import ProjectsTree from '../components/ProjectsTree';
-import Pricing from '../components/Pricing';
 import Testimonials from '../components/Testimonials';
 import Team from '../components/Team';
 
@@ -18,7 +17,6 @@ const Home = () => {
             <Process />
             <WhyChooseUs />
             <ProjectsTree />
-            <Pricing />
             <Testimonials />
             <Team />
         </div>

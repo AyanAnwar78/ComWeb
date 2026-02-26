@@ -80,18 +80,11 @@ const ProjectsTree = () => {
 
                 {/* ── Section Heading ── */}
                 <div ref={headingRef} className="mb-10">
-                    <span className="text-xs text-white/50 uppercase tracking-[0.4em] mb-3 block">Our Work</span>
-                    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-                        <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-[0.85]"
-                            style={{ opacity: 0 }}>
-                            IT'S<br />
-                            <span className="text-white/25">STORY TIME</span>
-                        </h2>
-                        <p className="text-white/55 max-w-xs text-sm leading-relaxed flex-shrink-0"
-                            style={{ opacity: 0 }}>
-                            Every project starts with a conversation.<br />Here's how ours begin.
-                        </p>
-                    </div>
+                    <span className="section-label" style={{ opacity: 0 }}>Our Work</span>
+                    <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-[0.85]"
+                        style={{ opacity: 0 }}>
+                        Our<br /><span className="text-white/25">Projects</span>
+                    </h2>
                 </div>
 
                 {/* ── Project rows ── */}
@@ -120,7 +113,7 @@ const ProjectsTree = () => {
                                             </div>
 
                                             {/* Title */}
-                                            <h3 className="proj-title text-2xl md:text-4xl font-black tracking-tight text-white group-hover:text-white/80 transition-colors leading-tight mb-3"
+                                            <h3 className="proj-title text-3xl md:text-5xl font-black tracking-tight text-white group-hover:text-white/80 transition-colors leading-tight mb-3"
                                                 style={{ opacity: 0 }}>
                                                 {project.title}
                                             </h3>
@@ -129,7 +122,7 @@ const ProjectsTree = () => {
                                             <div className="proj-tags flex flex-wrap gap-2">
                                                 {project.tags.map(tag => (
                                                     <span key={tag}
-                                                        className="text-[11px] px-2.5 py-0.5 border border-white/20 text-white/60 uppercase tracking-wider"
+                                                        className="text-xs px-2.5 py-0.5 border border-white/20 text-white/60 uppercase tracking-wider"
                                                         style={{ opacity: 0 }}>
                                                         {tag}
                                                     </span>
@@ -145,9 +138,9 @@ const ProjectsTree = () => {
                                     <div className="bubble-client flex justify-end" style={{ opacity: 0 }}>
                                         <div className="max-w-[85%] md:max-w-sm">
                                             <div className="bg-white/8 border border-white/15 rounded-xl rounded-tr-sm px-4 py-3">
-                                                <p className="text-white/85 text-sm leading-relaxed">{project.clientMsg}</p>
+                                                <p className="text-white/85 text-base leading-relaxed">{project.clientMsg}</p>
                                             </div>
-                                            <p className="text-right text-[10px] text-white/30 uppercase tracking-widest mt-1">{project.client}</p>
+                                            <p className="text-right text-xs text-white/30 uppercase tracking-widest mt-1">{project.client}</p>
                                         </div>
                                     </div>
 
@@ -155,15 +148,15 @@ const ProjectsTree = () => {
                                     <div className="bubble-team flex justify-start" style={{ opacity: 0 }}>
                                         <div className="max-w-[85%] md:max-w-sm">
                                             <div className="bg-white rounded-xl rounded-tl-sm px-4 py-3">
-                                                <p className="text-black text-sm leading-relaxed font-medium">{project.teamReply}</p>
+                                                <p className="text-black text-base leading-relaxed font-medium">{project.teamReply}</p>
                                             </div>
-                                            <p className="text-[10px] text-white/30 uppercase tracking-widest mt-1">WebNginx</p>
+                                            <p className="text-xs text-white/30 uppercase tracking-widest mt-1">WebNginx</p>
                                         </div>
                                     </div>
 
                                     {/* View project */}
                                     <div className="flex justify-end">
-                                        <a href="#" className="text-[11px] uppercase tracking-widest text-white/35 hover:text-white flex items-center gap-1.5 transition-colors group/lnk">
+                                        <a href="#" className="text-xs uppercase tracking-widest text-white/35 hover:text-white flex items-center gap-1.5 transition-colors group/lnk">
                                             View Project
                                             <span className="group-hover/lnk:translate-x-1 transition-transform inline-block">→</span>
                                         </a>
